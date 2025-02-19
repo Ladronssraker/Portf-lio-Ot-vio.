@@ -208,6 +208,23 @@ while True:
 			else:
 				print("essa carta ja foi removida!")
 			break
+	
+	#adiciona uma carta ao baralho se salva permanecera!
+	if num == "adicionar" or num == "add" or num == "colocar":
+			num = str(input("que carta deseja adicionar: "))
+			if num in cartas["cartas"]:
+				print("essa carta ja esta no baralho")
+			else:
+				save = cartas["cartas"]
+				save.append(num)
+				cartas["cartas"] = save
+				if not cartas["bol"]:
+					save = cartas["loading"]
+					save.append(num)
+					cartas["loading"] = save
+				print("carta adicionada!")
+				salvar_arquivo(arq, cartas)
+			break
 			
 			
 	#transforma 'num'' em um numero inteiro!
